@@ -149,26 +149,25 @@ body {
 
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-<div class="container">
-<a class="navbar-brand fw-bold">My Portfolio</a>
+  <div class="container">
+    <a class="navbar-brand fw-bold">My Portfolio</a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
-<span class="navbar-toggler-icon"></span>
-</button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+        <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+        <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
 
-<div class="collapse navbar-collapse" id="navMenu">
-<ul class="navbar-nav ms-auto">
-<li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-<li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
-<li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
-<li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
-
-<li class="nav-item">
+          <li class="nav-item">
 <button id="themeToggle" class="btn btn-outline-primary ms-3">🌙</button>
 </li>
-</ul>
-</div>
-</div>
+      </ul>
+    </div>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -325,7 +324,7 @@ function getAIResponse(msg){
     if(msg.includes('name')) return "My name is Nick Juliane AI Assistant!";
     if(msg.includes('project')) return "I build Laravel systems like student monitoring and QR attendance.";
     if(msg.includes('skills')) return "I am skilled in Laravel, PHP, MySQL, and Bootstrap.";
-    return "Sorry, I can't answer that right now, but I'm you can contact me to my social media!";
+    return "Sorry, I can't answer that right now, but you can contact me to my social media!";
 }
 
 // Send message
