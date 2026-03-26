@@ -17,12 +17,50 @@ body {
     transition: 0.3s;
 }
 
-/* Navbar */
+/* NAVBAR */
 .navbar {
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-/* Hero Section */
+/* Navbar links */
+.navbar .nav-link {
+    color: #000;
+    position: relative;
+    transition: color 0.3s;
+}
+
+/* Smooth underline animation */
+.navbar .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: #0d6efd;
+    transition: width 0.3s, left 0.3s;
+}
+
+.navbar .nav-link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Dark mode navbar */
+.dark-mode .navbar {
+    background: #1e1e1e !important;
+    box-shadow: 0 2px 10px rgba(255,255,255,0.05);
+}
+
+.dark-mode .navbar .nav-link {
+    color: #fff;
+}
+
+.dark-mode .navbar .nav-link::after {
+    background-color: #0d6efd;
+}
+
+/* HERO */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -49,10 +87,6 @@ body {
 .dark-mode {
     background: #121212;
     color: white;
-}
-
-.dark-mode .navbar {
-    background: #1e1e1e !important;
 }
 
 .dark-mode .hero {
@@ -149,25 +183,25 @@ body {
 
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-  <div class="container">
-    <a class="navbar-brand fw-bold">My Portfolio</a>
-    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<div class="container">
+<a class="navbar-brand fw-bold">My Portfolio</a>
 
-    <div class="collapse navbar-collapse" id="navMenu">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-        <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
-        <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
-        <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
+<span class="navbar-toggler-icon"></span>
+</button>
 
-          <li class="nav-item">
+<div class="collapse navbar-collapse" id="navMenu">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+<li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+<li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+<li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+<li class="nav-item">
 <button id="themeToggle" class="btn btn-outline-primary ms-3">🌙</button>
 </li>
-      </ul>
-    </div>
-  </div>
+</ul>
+</div>
+</div>
 </nav>
 
 <!-- HERO -->
@@ -178,7 +212,7 @@ body {
 <div class="col-md-6">
 <h1 class="fw-bold">Hi, I'm Nick Juliane</h1>
 <h4 class="text-primary">Full Stack Developer</h4>
-<p>I build Web-based systems like student monitoring and QR tracking applications.</p>
+<p>I build Laravel-based systems like student monitoring and QR tracking applications.</p>
 </div>
 
 <div class="col-md-6 text-center">
@@ -279,7 +313,6 @@ body {
 <!-- BOOTSTRAP JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- SCRIPT -->
 <script>
 // Dark Mode Toggle
 const toggleBtn = document.getElementById("themeToggle");
@@ -324,7 +357,7 @@ function getAIResponse(msg){
     if(msg.includes('name')) return "My name is Nick Juliane AI Assistant!";
     if(msg.includes('project')) return "I build Laravel systems like student monitoring and QR attendance.";
     if(msg.includes('skills')) return "I am skilled in Laravel, PHP, MySQL, and Bootstrap.";
-    return "Sorry, I can't answer that right now, but you can contact me to my social media!";
+    return "Sorry, I can't answer that right now, but I'm learning!";
 }
 
 // Send message
