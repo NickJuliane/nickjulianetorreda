@@ -47,6 +47,17 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
             scroll-behavior:smooth;
         }
 
+        .contact-item,
+.project-card,
+.education-item{
+    word-wrap:break-word;
+    overflow-wrap:break-word;
+}
+
+        body{
+    overflow-x:hidden;
+}
+
         body{
             background:var(--bg);
             color:var(--text);
@@ -96,14 +107,11 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 }
 
 .profile img{
-    width:150px;
-    height:150px;
-    border-radius:50%;
+    width:100%;
+    max-width:150px;
+    aspect-ratio:1/1;
     object-fit:cover;
-    display:block;
-    margin:auto;
-    box-shadow:0 8px 20px rgba(0,0,0,.08);
-    transition:.3s ease;
+    border-radius:50%;
 }
 
 .profile img:hover{
@@ -247,7 +255,12 @@ footer{
     font-size:14px;
 }
 
-@media(max-width:992px){
+
+
+
+/* computer */
+
+@media (max-width: 992px){
 
     .portfolio{
         grid-template-columns:1fr;
@@ -255,10 +268,78 @@ footer{
 
     .sidebar{
         position:relative;
+        top:0;
+    }
+
+    .container{
+        padding:20px;
+    }
+
+    .profile h1{
+        font-size:24px;
+        white-space:normal;
+    }
+
+    .section-title{
+        font-size:24px;
+    }
+}
+
+
+
+
+
+/* mobile */
+
+
+@media (max-width:768px){
+
+    .container{
+        padding:15px;
+    }
+
+    .card{
+        padding:20px;
+    }
+
+    .profile img{
+        width:120px;
+        height:120px;
+    }
+
+    .profile h1{
+        font-size:22px;
+        line-height:1.3;
+    }
+
+    .project-grid{
+        grid-template-columns:1fr;
+    }
+
+    .skills{
+        gap:8px;
+    }
+
+    .skill{
+        font-size:13px;
+        padding:7px 14px;
+    }
+
+    .contact-item{
+        font-size:14px;
+    }
+
+    .contact-icon{
+        width:35px;
+        height:35px;
+        font-size:14px;
+    }
+
+    .section-title{
+        font-size:22px;
     }
 
 }
-
 
 /* CHATBOX */
 
@@ -283,6 +364,7 @@ footer{
 
 .chat-box{
     width:350px;
+    max-width:calc(100vw - 30px);
     height:500px;
     background:var(--card);
     border-radius:20px;
@@ -291,6 +373,27 @@ footer{
     display:none;
     flex-direction:column;
     margin-bottom:15px;
+}
+
+
+@media (max-width:576px){
+
+    .chat-box{
+        width:100%;
+        height:450px;
+        position:fixed;
+        bottom:90px;
+        right:0;
+        left:0;
+        margin:auto;
+        max-width:95%;
+    }
+
+    .chat-toggle{
+        width:55px;
+        height:55px;
+    }
+
 }
 
 .chat-header{
@@ -420,7 +523,7 @@ body.dark .contact-icon{
             <div class="sidebar">
 
                 <div class="card profile">
-                    <img src="img/me.jpg" alt="">
+                    <img src="img/image1.jpg" alt="">
                     <h1>Nick Juliane Torreda</h1>
                     <p>Full Stack Developer</p>
                 </div>
