@@ -3,399 +3,277 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nick Juliane | Portfolio</title>
-
-<!-- Bootstrap -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<title>My Portfolio</title>
 
 <style>
-body {
-    font-family: 'Poppins', sans-serif;
-    transition: 0.3s;
+:root{
+    --bg:#ffffff;
+    --text:#222222;
+    --card:#f5f5f5;
+    --primary:#2563eb;
 }
 
-/* Smooth scroll */
-html {
-    scroll-behavior: smooth;
+.dark{
+    --bg:#121212;
+    --text:#ffffff;
+    --card:#1e1e1e;
+    --primary:#60a5fa;
 }
 
-/* NAVBAR */
-.navbar {
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI, sans-serif;
 }
 
-/* Logo */
-.navbar .navbar-brand {
-    color: #000;
-    font-weight: bold;
-    cursor: pointer;
-    transition: color 0.3s;
+body{
+    background:var(--bg);
+    color:var(--text);
+    transition:0.3s;
 }
 
-/* Navbar links */
-.navbar .nav-link {
-    color: #000;
-    position: relative;
-    transition: color 0.3s;
+header{
+    background:var(--primary);
+    color:white;
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
-/* Smooth underline animation */
-.navbar .nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: 0;
-    left: 50%;
-    background-color: #0d6efd;
-    transition: width 0.3s, left 0.3s;
+.logo{
+    font-size:24px;
+    font-weight:bold;
 }
 
-.navbar .nav-link:hover::after {
-    width: 100%;
-    left: 0;
+.toggle-btn{
+    background:white;
+    color:black;
+    border:none;
+    padding:10px 15px;
+    border-radius:8px;
+    cursor:pointer;
 }
 
-/* Dark mode navbar */
-.dark-mode .navbar {
-    background: #1e1e1e !important;
-    box-shadow: 0 2px 10px rgba(255,255,255,0.05);
+.container{
+    width:90%;
+    max-width:1100px;
+    margin:auto;
+    padding:40px 0;
 }
 
-.dark-mode .navbar .nav-link {
-    color: #fff;
+section{
+    margin-bottom:40px;
 }
 
-.dark-mode .navbar .nav-link::after {
-    background-color: #0d6efd;
+.section-title{
+    font-size:28px;
+    margin-bottom:20px;
+    color:var(--primary);
 }
 
-/* Logo in dark mode */
-.dark-mode .navbar .navbar-brand {
-    color: #fff;
+.card{
+    background:var(--card);
+    padding:20px;
+    border-radius:12px;
+    margin-bottom:15px;
 }
 
-/* HERO */
-.hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    background: #f8f9fa;
+.hero{
+    text-align:center;
+    padding:60px 0;
 }
 
-/* Profile Image */
-.profile-img {
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 5px solid #0d6efd;
+.hero img{
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-bottom:15px;
 }
 
-/* Card Styles */
-.card {
-    border: none;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+.hero h1{
+    font-size:42px;
 }
 
-/* Dark Mode */
-.dark-mode {
-    background: #121212;
-    color: white;
+.hero p{
+    margin-top:10px;
+    opacity:0.8;
 }
 
-.dark-mode .hero {
-    background: #121212;
+.skills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
 }
 
-.dark-mode .bg-light {
-    background: #1a1a1a !important;
+.skill{
+    background:var(--primary);
+    color:white;
+    padding:10px 15px;
+    border-radius:20px;
 }
 
-.dark-mode .card {
-    background: #1e1e1e;
-    color: white;
+.projects{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
 }
 
-/* Chat Button */
-#chatToggle {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 999;
-    padding: 12px 16px;
-    border: none;
-    border-radius: 50%;
-    background: #0d6efd;
-    color: white;
-    font-size: 18px;
+.project-card{
+    background:var(--card);
+    padding:20px;
+    border-radius:12px;
 }
 
-/* Chat Box */
-#chatBox {
-    display: none;
-    position: fixed;
-    bottom: 80px;
-    right: 20px;
-    width: 90%;
-    max-width: 360px;
-    height: 400px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-    overflow: hidden;
-    z-index: 999;
-    display: flex;
-    flex-direction: column;
+.project-card h3{
+    margin-bottom:10px;
 }
 
-.dark-mode #chatBox {
-    background: #1e1e1e;
-    color: white;
+.project-card a{
+    color:var(--primary);
+    text-decoration:none;
 }
 
-/* Chat Header */
-#chatHeader {
-    background: #0d6efd;
-    color: white;
-    padding: 12px;
-    font-weight: bold;
+footer{
+    text-align:center;
+    padding:20px;
+    background:var(--card);
 }
 
-/* Chat Messages */
-#chatMessages {
-    flex: 1;
-    padding: 10px;
-    overflow-y: auto;
-}
-
-/* Chat Input Area */
-#chatInputArea {
-    display: flex;
-    padding: 8px;
-    border-top: 1px solid #ddd;
-}
-
-#chatInputArea input {
-    flex: 1;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
-
-#chatInputArea button {
-    margin-left: 5px;
-    padding: 8px 12px;
-    border: none;
-    background: #0d6efd;
-    color: white;
-    border-radius: 5px;
+@media(max-width:768px){
+    .hero h1{
+        font-size:32px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+<header>
+    <div class="logo">My Portfolio</div>
+    <button class="toggle-btn" onclick="toggleTheme()">
+        🌙 Dark Mode
+    </button>
+</header>
+
 <div class="container">
-<a class="navbar-brand" id="scrollTop">My Portfolio</a>
 
-<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu">
-<span class="navbar-toggler-icon"></span>
-</button>
+    <section class="hero">
+        <img src="profile.jpg" alt="Profile">
+        <h1>Your Name</h1>
+        <p>Web Developer | Laravel Developer | Student</p>
+    </section>
 
-<div class="collapse navbar-collapse" id="navMenu">
-<ul class="navbar-nav ms-auto">
-<li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-<li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
-<li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
-<li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
-<li class="nav-item">
-<button id="themeToggle" class="btn btn-outline-primary ms-3">🌙</button>
-</li>
-</ul>
-</div>
-</div>
-</nav>
+    <section>
+        <h2 class="section-title">About Me</h2>
+        <div class="card">
+            <p>
+                I am a passionate web developer specializing in Laravel,
+                PHP, Java, and modern web technologies. I enjoy building
+                management systems and solving real-world problems through code.
+            </p>
+        </div>
+    </section>
 
-<!-- HERO -->
-<section class="hero">
-<div class="container">
-<div class="row align-items-center">
+    <section>
+        <h2 class="section-title">Education</h2>
 
-<div class="col-md-6">
-<h1 class="fw-bold">Hi, I'm Nick Juliane</h1>
-<h4 class="text-primary">Full Stack Developer</h4>
-<p>I build Laravel-based systems like student monitoring and QR tracking applications.</p>
+        <div class="card">
+            <h3>Bachelor of Science in Information Technology</h3>
+            <p>University Name</p>
+            <p>2022 - Present</p>
+        </div>
+
+        <div class="card">
+            <h3>Senior High School</h3>
+            <p>School Name</p>
+            <p>2020 - 2022</p>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">Skills</h2>
+
+        <div class="skills">
+            <div class="skill">Laravel</div>
+            <div class="skill">PHP</div>
+            <div class="skill">Java</div>
+            <div class="skill">MySQL</div>
+            <div class="skill">Bootstrap</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">Projects</h2>
+
+        <div class="projects">
+
+            <div class="project-card">
+                <h3>Student Time Monitoring System</h3>
+                <p>
+                    A QR and Face Recognition attendance monitoring
+                    system built using Laravel.
+                </p>
+                <br>
+                <a href="#">View Project →</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Record Management System</h3>
+                <p>
+                    A document and identification management system
+                    developed using Java Servlets and JSP.
+                </p>
+                <br>
+                <a href="#">View Project →</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Portfolio Website</h3>
+                <p>
+                    Personal portfolio showcasing projects,
+                    education, and skills.
+                </p>
+                <br>
+                <a href="#">View Project →</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">Contact</h2>
+
+        <div class="card">
+            <p>Email: your@email.com</p>
+            <p>Phone: +63 XXX XXX XXXX</p>
+            <p>Location: Philippines</p>
+        </div>
+    </section>
+
 </div>
 
-<div class="col-md-6 text-center">
-<img src="img/me.jpg" class="profile-img">
-</div>
-
-</div>
-</div>
-</section>
-
-<!-- ABOUT -->
-<section id="about" class="py-5">
-<div class="container text-center">
-<h2>About Me</h2>
-<p>I am a developer specializing in Laravel systems and real-time applications.</p>
-</div>
-</section>
-
-<!-- SKILLS -->
-<section id="skills" class="bg-light py-5">
-<div class="container text-center">
-<h2>Skills</h2>
-<div class="row">
-<div class="col-md-3">Laravel</div>
-<div class="col-md-3">PHP</div>
-<div class="col-md-3">MySQL</div>
-<div class="col-md-3">Bootstrap</div>
-</div>
-</div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects" class="py-5">
-<div class="container">
-<h2 class="text-center">Projects</h2>
-
-<div class="row">
-<div class="col-md-4">
-<div class="card">
-<img src="project1.jpg" class="card-img-top">
-<div class="card-body">
-<h5>Student Monitoring</h5>
-<p>QR attendance system</p>
-</div>
-</div>
-</div>
-
-<div class="col-md-4">
-<div class="card">
-<img src="project2.jpg" class="card-img-top">
-<div class="card-body">
-<h5>Gate Monitoring</h5>
-<p>Time-in/out tracking</p>
-</div>
-</div>
-</div>
-
-<div class="col-md-4">
-<div class="card">
-<img src="project3.jpg" class="card-img-top">
-<div class="card-body">
-<h5>Inventory</h5>
-<p>CRUD system</p>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="bg-light py-5">
-<div class="container text-center">
-<h2>Contact</h2>
-<p>Email: your@email.com</p>
-</div>
-</section>
-
-<!-- FOOTER -->
-<footer class="text-center py-3 bg-dark text-white">
-<p>© 2026 Nick Juliane</p>
+<footer>
+    © 2026 Your Name | Portfolio Website
 </footer>
 
-<!-- CHAT BUTTON -->
-<button id="chatToggle">💬</button>
-
-<!-- CHAT BOX -->
-<div id="chatBox">
-<div id="chatHeader">AI Assistant</div>
-<div id="chatMessages"></div>
-<div id="chatInputArea">
-<input type="text" id="chatInput" placeholder="Ask something...">
-<button onclick="sendMessage()">Send</button>
-</div>
-</div>
-
-<!-- BOOTSTRAP JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
 <script>
-// Dark Mode Toggle
-const toggleBtn = document.getElementById("themeToggle");
-if(localStorage.getItem("theme") === "dark") {
-    document.body.classList.add("dark-mode");
-    toggleBtn.innerHTML = "☀️";
-}
+function toggleTheme() {
+    document.body.classList.toggle("dark");
 
-toggleBtn.onclick = () => {
-    document.body.classList.toggle("dark-mode");
-    if(document.body.classList.contains("dark-mode")) {
-        localStorage.setItem("theme","dark");
-        toggleBtn.innerHTML = "☀️";
-    } else {
-        localStorage.setItem("theme","light");
-        toggleBtn.innerHTML = "🌙";
+    const btn = document.querySelector(".toggle-btn");
+
+    if(document.body.classList.contains("dark")){
+        btn.innerHTML = "☀️ Light Mode";
+    }else{
+        btn.innerHTML = "🌙 Dark Mode";
     }
-};
-
-// Scroll to top when logo clicked
-document.getElementById('scrollTop').addEventListener('click', function(){
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-// Chat Toggle
-const chatToggle = document.getElementById('chatToggle');
-const chatBox = document.getElementById('chatBox');
-const chatMessages = document.getElementById('chatMessages');
-
-chatToggle.onclick = () => {
-    chatBox.style.display = chatBox.style.display === 'none' ? 'flex' : 'none';
-};
-
-// Add message
-function addMessage(text,sender){
-    const msg = document.createElement('div');
-    msg.style.marginBottom = "10px";
-    msg.innerHTML = `<b>${sender}:</b> ${text}`;
-    chatMessages.appendChild(msg);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-}
-
-// Simulated AI response
-function getAIResponse(msg){
-    msg = msg.toLowerCase();
-    if(msg.includes('hello') || msg.includes('hi')) return "Hello! I'm your portfolio AI assistant.";
-    if(msg.includes('name')) return "My name is Nick Juliane AI Assistant!";
-    if(msg.includes('project')) return "I build Laravel systems like student monitoring and QR attendance.";
-    if(msg.includes('skills')) return "I am skilled in Laravel, PHP, MySQL, and Bootstrap.";
-    return "Sorry, I can't answer that right now, but you can contact me in my social media!";
-}
-
-// Send message
-function sendMessage(){
-    const input = document.getElementById('chatInput');
-    const msg = input.value.trim();
-    if(!msg) return;
-
-    addMessage(msg, 'You');
-    input.value = '';
-
-    setTimeout(()=>{
-        const reply = getAIResponse(msg);
-        addMessage(reply,'AI');
-    },500);
 }
 </script>
 
