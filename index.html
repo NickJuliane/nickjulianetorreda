@@ -191,48 +191,82 @@ body.dark .skill{
     margin-bottom:8px;
 }
 
+
+
+/**/
 .project-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:25px;
-    align-items:stretch;
+    gap:18px;
 }
 
-@media (max-width:768px){
-
-    .project-grid{
-        grid-template-columns:1fr;
-    }
-
-}
-
+/* CARD STYLE */
 .project-card{
-    background:var(--card);
-    border-radius:14px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
     padding:18px;
+    border-radius:14px;
+    background:var(--card);
     border:1px solid var(--border);
-    transition:.3s ease;
+
+    text-decoration:none;
+    color:inherit;
+
+    transition:.25s ease;
+    position:relative;
+    overflow:hidden;
 }
 
+/* HOVER EFFECT */
+.project-card:hover{
+    transform:translateY(-4px);
+    border-color:rgba(37,99,235,.4);
+}
 
-
+/* TEXT */
 .project-card h3{
-    font-size:17px;
-    margin-bottom:8px;
+    font-size:16px;
+    margin-bottom:5px;
 }
 
 .project-card p{
-    font-size:14px;
-    line-height:1.6;
+    font-size:13px;
+    color:var(--text-secondary);
+    line-height:1.5;
 }
 
-.project-link{
-    display:inline-block;
-    margin-top:15px;
-    text-decoration:none;
+/* ARROW */
+.project-arrow{
+    font-size:14px;
     color:var(--primary);
-    font-weight:bold;
+    opacity:0;
+    transform:translateX(-8px);
+    transition:.25s ease;
 }
+
+/* SHOW ARROW ON HOVER */
+.project-card:hover .project-arrow{
+    opacity:1;
+    transform:translateX(3px);
+}
+
+/* MOBILE */
+@media (max-width:768px){
+    .project-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+
+
+
+
+
+
+
+
 
 
 
@@ -366,12 +400,12 @@ footer{
         gap:8px;
     }
 
-   .skill{
-    padding:6px 12px;
-    font-size:13px;
-}
+    .skill{
+        padding:6px 12px;
+        font-size:13px;
+    }
 
-   
+
 
     .contact-icon{
         width:35px;
@@ -394,7 +428,12 @@ footer{
     z-index:1000;
 }
 
+/* Messenger Button */
 .chat-toggle{
+    position:absolute;
+    bottom:0;
+    right:0;
+
     width:60px;
     height:60px;
     border:none;
@@ -406,111 +445,155 @@ footer{
     box-shadow:var(--shadow);
 }
 
+/* Chat Window */
 .chat-box{
-    width:350px;
-    max-width:calc(100vw - 30px);
-    height:500px;
+    position:absolute;
+    bottom:75px; /* sits above button */
+    right:0;
+
+    width:360px;
+    height:520px;
+
     background:var(--card);
-    border-radius:20px;
+    border-radius:16px;
     overflow:hidden;
-    box-shadow:var(--shadow);
+    box-shadow:0 10px 35px rgba(0,0,0,.15);
+    border:1px solid var(--border);
+
     display:none;
     flex-direction:column;
-    margin-bottom:15px;
 }
 
-
-@media (max-width:576px){
-
-    .chat-box{
-        width:100%;
-        height:450px;
-        position:fixed;
-        bottom:90px;
-        right:0;
-        left:0;
-        margin:auto;
-        max-width:95%;
-    }
-
-    .chat-toggle{
-        width:55px;
-        height:55px;
-    }
-
-}
+/* HEADER (Messenger-style) */
 
 .chat-header{
     background:var(--primary);
-    color:white;
-    padding:15px;
+    color:#fff;
+    padding:12px 14px;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    font-weight:bold;
 }
 
-.chat-header span{
-    cursor:pointer;
+/* USER BLOCK */
+.chat-user{
+    display:flex;
+    align-items:center;
+    gap:10px;
 }
 
+/* AVATAR */
+.avatar{
+    position:relative;
+    width:38px;
+    height:38px;
+}
+
+.avatar img{
+    width:100%;
+    height:100%;
+    border-radius:50%;
+    object-fit:cover;
+}
+
+/* ONLINE DOT */
+.online-dot{
+    position:absolute;
+    bottom:2px;
+    right:2px;
+    width:10px;
+    height:10px;
+    background:#31a24c;
+    border:2px solid #fff;
+    border-radius:50%;
+}
+
+/* TEXT */
+.user-info{
+    display:flex;
+    flex-direction:column;
+    line-height:1.2;
+}
+
+.user-info strong{
+    font-size:13px;
+}
+
+.user-info small{
+    font-size:11px;
+    opacity:.85;
+}
+
+/* BODY */
 .chat-body{
     flex:1;
     overflow-y:auto;
-    padding:15px;
+    padding:14px;
+    background:var(--bg);
+    display:flex;
+    flex-direction:column;
+    gap:8px;
 }
 
+/* MESSAGES (Messenger bubbles) */
 .bot-message,
 .user-message{
-    padding:10px 15px;
-    border-radius:15px;
-    margin-bottom:10px;
-    max-width:80%;
+    padding:10px 14px;
+    border-radius:18px;
+    max-width:75%;
+    font-size:13px;
+    line-height:1.4;
+    word-wrap:break-word;
 }
 
+/* BOT = LEFT */
 .bot-message{
-    background:#e5e7eb;
-    color:#000;
+    background:#e4e6eb;
+    color:#111;
+    align-self:flex-start;
+    border-bottom-left-radius:6px;
 }
 
+/* USER = RIGHT */
 .user-message{
     background:var(--primary);
-    color:white;
-    margin-left:auto;
+    color:#fff;
+    align-self:flex-end;
+    border-bottom-right-radius:6px;
 }
 
+/* FOOTER */
 .chat-footer{
     display:flex;
-    border-top:1px solid #ddd;
+    border-top:1px solid var(--border);
+    padding:8px;
+    background:var(--card);
 }
 
 .chat-footer input{
     flex:1;
-    padding:12px;
-    border:none;
+    padding:10px 12px;
+    border-radius:20px;
+    border:1px solid var(--border);
     outline:none;
-    background:var(--card);
-    color:var(--text);
+    font-size:13px;
 }
 
 .chat-footer button{
+    margin-left:8px;
     background:var(--primary);
-    color:white;
+    color:#fff;
     border:none;
-    padding:12px 18px;
+    border-radius:20px;
+    padding:10px 14px;
     cursor:pointer;
+    font-size:13px;
+    transition:.2s;
 }
 
-
-p{
-    color:var(--text-secondary);
+.chat-footer button:hover{
+    opacity:.9;
 }
-
-small{
-    color:var(--text-secondary);
-}
-
-
 
 
 
@@ -565,24 +648,29 @@ body.dark .contact-icon{
     display:flex;
     justify-content:center;
     align-items:center;
-    gap:8px;
-    flex-wrap:nowrap;
+    gap:4px;
 }
-
 .verified-badge{
-    width:22px;
-    height:22px;
+    width:14px;
+    height:14px;
     border-radius:50%;
-    background:#1877f2; /* Facebook Blue */
-    color:#fff;
+
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:11px;
-    flex-shrink:0;
-    box-shadow:0 2px 8px rgba(24,119,242,.35);
+
+    font-size:7px;
+
+    background:#2563eb;
+    color:white;
+
+    transition:.3s ease;
 }
 
+body.dark .verified-badge{
+    background:#60a5fa;
+    color:#0f172a;
+}
 
 
 /* edu-work-grid */
@@ -609,71 +697,107 @@ body.dark .contact-icon{
 
 
 
-/* workexperience bullet */
+/* workexperience bullet *//* Timeline */
 
 .timeline{
     position:relative;
-    margin-left:15px;
+    margin-left:10px;
 }
 
 .timeline::before{
     content:'';
     position:absolute;
-    left:7px;
+    left:6px;
     top:0;
     bottom:0;
-    width:2px;
+    width:1.5px;
     background:#d1d5db;
 }
 
+/* Timeline Item */
+
 .timeline-item{
     position:relative;
-    padding-left:30px;
-    margin-bottom:20px;
+    padding:8px 10px 8px 25px;
+    margin-bottom:8px;
+    border-radius:10px;
+    transition:all .25s ease;
 }
+
+.timeline-item h3{
+    font-size:14px;
+    font-weight:600;
+    margin-bottom:2px;
+    transition:color .25s ease;
+}
+
+.timeline-item p{
+    font-size:13px;
+    line-height:1.5;
+    margin:0;
+}
+
+.timeline-item small{
+    display:block;
+    font-size:12px;
+    color:var(--text-secondary);
+    margin-bottom:3px;
+}
+
+/* Bullet */
 
 .timeline-item::before{
     content:'';
     position:absolute;
-    left:0;
-    top:6px;
-    width:16px;
-    height:16px;
+    left:2px;
+    top:12px;
+
+    width:10px;
+    height:10px;
+
     border-radius:50%;
-    background:#374151;
-    border:3px solid var(--card);
+    background:#6b7280;
+    border:2px solid var(--card);
+
+    transition:all .25s ease;
     z-index:2;
 }
 
-.timeline-item h3{
-    font-size:16px;
-    margin-bottom:3px;
+/* Hover Effects */
+
+.timeline-item:hover{
+    transform:translateX(6px);
 }
 
-.timeline-item small{
-    font-size:13px;
-    margin-bottom:5px;
+.timeline-item:hover h3{
+    color:#2563eb;
 }
 
-.timeline-item p{
-    margin:0;
+.timeline-item:hover::before{
+    background:#2563eb;
+    transform:scale(1.15);
 }
 
-
-
-
+/* Dark Mode */
 
 body.dark .timeline::before{
     background:#475569;
 }
 
 body.dark .timeline-item::before{
-    background:#e2e8f0;
-    border:3px solid var(--card);
+    background:#cbd5e1;
+    border:2px solid var(--card);
 }
 
+/* Keep hover blue in dark mode too */
 
+body.dark .timeline-item:hover::before{
+    background:#60a5fa;
+}
 
+body.dark .timeline-item:hover h3{
+    color:#60a5fa;
+}
 
 
 
@@ -748,6 +872,87 @@ body.dark .timeline-item::before{
     transform:translateY(-5px);
 }
 
+
+/*social links*/
+.contact-item a{
+    color:var(--text-secondary);
+    text-decoration:none;
+    transition:.3s;
+}
+
+.contact-item a:hover{
+    color:var(--text);
+}
+
+.contact-link{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:var(--text-secondary);
+    text-decoration:none;
+    transition:.3s ease;
+}
+
+.contact-link:hover{
+    color:var(--text);
+}
+
+.arrow{
+    font-size:12px;
+    opacity:0;
+    transform:translateX(-5px);
+    transition:.3s ease;
+}
+
+.contact-link:hover .arrow{
+    opacity:1;
+    transform:translateX(3px);
+}
+
+
+/* typing-dot */
+.typing-dot{
+    display:inline-block;
+    width:6px;
+    height:6px;
+    margin:0 2px;
+    border-radius:50%;
+    background:#777;
+    animation:typingBounce 1.2s infinite ease-in-out;
+}
+
+.typing-dot:nth-child(2){
+    animation-delay:.2s;
+}
+
+.typing-dot:nth-child(3){
+    animation-delay:.4s;
+}
+
+@keyframes typingBounce{
+    0%,80%,100%{
+        transform:translateY(0);
+        opacity:.4;
+    }
+
+    40%{
+        transform:translateY(-5px);
+        opacity:1;
+    }
+}
+
+
+/*icons styles*/
+
+.section-icon{
+    color:var(--text-secondary);
+}
+
+.section-title{
+    font-size:20px;
+    font-weight:700;
+    margin-bottom:12px;
+}
 </style>
 </head>
 <body>
@@ -760,7 +965,7 @@ body.dark .timeline-item::before{
             <div class="sidebar">
 
                 <div class="card profile">
-                    <img src="img/me.jpg" alt="">
+                    <img src="img/me.png" alt="">
 
 
                     <h2 class="profile-name">
@@ -780,327 +985,373 @@ body.dark .timeline-item::before{
 
 
                 <div class="card contact">
-                    <h2>Contact</h2>
+                 <h2>
+                    <i class="fas fa-address-card section-icon"></i>
+                    Get in Touch
+                </h2>
 
-                    <div class="contact-item">
-                        <span class="contact-icon">
-                            ✉
-                        </span>
-                        <span>torredanick@email.com</span>
-                    </div>
+                <div class="contact-item">
+                    <span class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </span>
 
-                    <div class="contact-item">
-                        <span class="contact-icon">
-                            ☎
-                        </span>
-                        <span>+63 912 345 6789</span>
-                    </div>
+                    <a href="mailto:torredanick@gmail.com" class="contact-link">
+                        Email Me
+                        <i class="fas fa-arrow-right arrow"></i>
+                    </a>
+                </div>
 
-                    <div class="contact-item">
-                        <span class="contact-icon">
-                            ⌖
-                        </span>
-                        <span>Philippines</span>
-                    </div>
+                <div class="contact-item">
+                    <span class="contact-icon">
+                        <i class="fab fa-facebook-f"></i>
+                    </span>
 
-                    <div class="contact-item">
-                        <span class="contact-icon">
-                            ⌘
-                        </span>
-                        <span>yourwebsite.com</span>
-                    </div>
+                    <a href="https://facebook.com/nick8090" target="_blank" class="contact-link">
+                        Facebook
+                        <i class="fas fa-arrow-right arrow"></i>
+                    </a>
+                </div>
+
+                <div class="contact-item">
+                    <span class="contact-icon">
+                        ☎
+                    </span>
+                    <span>+63 912 345 6789</span>
+                </div>
+
+                <div class="contact-item">
+                    <span class="contact-icon">
+                        ⌖
+                    </span>
+                    <span>Philippines</span>
                 </div>
 
 
+            </div>
 
 
 
 
-                <div class="card">
-                    <h2>Skills</h2>
-                    <br>
 
-                    <div class="skills">
-                        <span class="skill">Laravel</span>
-                        <span class="skill">PHP</span>
-                        <span class="skill">MySQL</span>
-                        <span class="skill">Java</span>
-                        <span class="skill">Bootstrap</span>
-                        <span class="skill">JavaScript</span>
-                        <span class="skill">HTML</span>
-                        <span class="skill">CSS</span>
-                    </div>
 
+            <div class="card">
+                <h2>
+                    <i class="fas fa-code section-icon"></i>
+                    Skills
+                </h2>
+                <br>
+
+                <div class="skills">
+                    <span class="skill">Laravel</span>
+                    <span class="skill">PHP</span>
+                    <span class="skill">MySQL</span>
+                    <span class="skill">Java</span>
+                    <span class="skill">Bootstrap</span>
+                    <span class="skill">JavaScript</span>
+                    <span class="skill">HTML</span>
+                    <span class="skill">CSS</span>
                 </div>
 
             </div>
 
-            <!-- RIGHT SIDE -->
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div>
+
+            <div class="card about">
+               <h2 class="section-title">
+                <i class="fas fa-user section-icon"></i>
+                About Me
+            </h2>
+
+            <p>
+              Hello! I am an web developer passionate about designing and developing modern, efficient, and scalable web applications. With experience in Laravel, PHP, MySQL, Java, and various web technologies, I focus on creating practical solutions that solve real-world problems. I am committed to continuous learning, writing clean and maintainable code, and building systems that improve user experience, optimize workflows, and contribute to organizational success.
+          </p>
+      </div>
+
+
+
+
+
+
+
+      <div class="card">
+
+        <div class="edu-work-grid">
+
+            <!-- Education -->
             <div>
+               <h2 class="section-title">
+    <i class="fas fa-graduation-cap section-icon"></i>
+    Education
+</h2>
 
-                <div class="card about">
-                    <h2 class="section-title">About Me</h2>
+                    <div class="timeline">
 
-                    <p>
-                      Hello! I am an Information Technology student and web developer passionate about designing and developing modern, efficient, and scalable web applications. With experience in Laravel, PHP, MySQL, Java, and various web technologies, I focus on creating practical solutions that solve real-world problems. I am committed to continuous learning, writing clean and maintainable code, and building systems that improve user experience, optimize workflows, and contribute to organizational success.
-                    </p>
-                </div>
-
-
-
-
-
-
-
-                <div class="card">
-
-                    <div class="edu-work-grid">
-
-                        <!-- Education -->
-                        <div>
-                            <h2 class="section-title">Education</h2>
-
-                            <div class="timeline">
-
-                                <div class="timeline-item">
-                                    <h3>Bachelor of Science in Information Technology</h3>
-                                    <p>University Name</p>
-                                    <small>2022 - Present</small>
-                                </div>
-
-                                <div class="timeline-item">
-                                    <h3>Senior High School</h3>
-                                    <p>School Name</p>
-                                    <small>2020 - 2022</small>
-                                </div>
-
-                                <div class="timeline-item">
-                                    <h3>Junior High School</h3>
-                                    <p>School Name</p>
-                                    <small>2016 - 2020</small>
-                                </div>
-
-                            </div>
+                        <div class="timeline-item">
+                            <h3>Bachelor of Science in Information Technology</h3>
+                            <p>University Name</p>
+                            <small>2022 - Present</small>
                         </div>
 
-
-
-
-
-
-                        <!-- Work Experience -->
-                        <div>
-                            <h2 class="section-title">Work Experience</h2>
-
-                            <div class="timeline">
-
-                                <div class="timeline-item">
-                                    <h3>Freelance Web Developer</h3>
-                                    <small>2024 - Present</small>
-                                    <p>
-                                        Developing Laravel-based web applications and student management systems.
-                                    </p>
-                                </div>
-
-                                <div class="timeline-item">
-                                    <h3>Full Stack Developer</h3>
-                                    <small>2023 - Present</small>
-                                    <p>
-                                        Building responsive websites using Laravel, PHP, MySQL, Bootstrap, and JavaScript.
-                                    </p>
-                                </div>
-
-                                <div class="timeline-item">
-                                    <h3>Internship</h3>
-                                    <small>2025</small>
-                                    <p>
-                                        Assisted in software development and database management projects.
-                                    </p>
-                                </div>
-
-                            </div>
+                        <div class="timeline-item">
+                            <h3>Senior High School</h3>
+                            <p>School Name</p>
+                            <small>2020 - 2022</small>
                         </div>
 
-
-
-
-
-
-                    </div>
-
-                </div>
-
-
-
-
-
-
-
-
-                <div class="card">
-                    <h2 class="section-title">Projects</h2>
-
-                    <div class="project-grid">
-
-                        <div class="project-card">
-                            <h3>Student Time Monitoring System</h3>
-
-                            <p>
-                                A QR Code and Face Recognition based attendance
-                                monitoring system built using Laravel.
-                            </p>
-
-                            <a href="#" class="project-link">
-                                View Project →
-                            </a>
-                        </div>
-
-                        <div class="project-card">
-                            <h3>Record Management System</h3>
-
-                            <p>
-                                Java Servlet and JSP-based application for
-                                managing records and identifications.
-                            </p>
-
-                            <a href="#" class="project-link">
-                                View Project →
-                            </a>
-                        </div>
-
-                        <div class="project-card">
-                            <h3>QR Attendance System</h3>
-
-                            <p>
-                                A web application for tracking attendance
-                                through QR code scanning.
-                            </p>
-
-                            <a href="#" class="project-link">
-                                View Project →
-                            </a>
-                        </div>
-
-                        <div class="project-card">
-                            <h3>Portfolio Website</h3>
-
-                            <p>
-                                Personal portfolio website showcasing projects,
-                                education, and technical skills.
-                            </p>
-
-                            <a href="#" class="project-link">
-                                View Project →
-                            </a>
+                        <div class="timeline-item">
+                            <h3>Junior High School</h3>
+                            <p>School Name</p>
+                            <small>2016 - 2020</small>
                         </div>
 
                     </div>
                 </div>
 
-                <div class="card">
-                    <h2 class="section-title">Certificates</h2>
 
-                    <div class="education-item">
-                        <h3>Web Development Certificate</h3>
-                        <small>2025</small>
+
+
+
+
+                <!-- Work Experience -->
+                <div>
+                   <h2 class="section-title">
+    <i class="fas fa-briefcase section-icon"></i>
+    Work Experience
+</h2>
+
+                    <div class="timeline">
+
+                        <div class="timeline-item">
+                            <h3>Freelance Web Developer</h3>
+                            <small>2024 - Present</small>
+                            <p>
+                                Developing Laravel-based web applications and student management systems.
+                            </p>
+                        </div>
+
+                        <div class="timeline-item">
+                            <h3>Full Stack Developer</h3>
+                            <small>2023 - Present</small>
+                            <p>
+                                Building responsive websites using Laravel, PHP, MySQL, Bootstrap, and JavaScript.
+                            </p>
+                        </div>
+
+                        <div class="timeline-item">
+                            <h3>Internship</h3>
+                            <small>2025</small>
+                            <p>
+                                Assisted in software development and database management projects.
+                            </p>
+                        </div>
+
                     </div>
-
-                    <div class="education-item">
-                        <h3>Laravel Development Training</h3>
-                        <small>2025</small>
-                    </div>
-
-
-
                 </div>
+
+
+
 
 
 
             </div>
 
         </div>
+
+
+
 
 
 
 
         <div class="card">
-            <h2 class="section-title">Gallery</h2>
+           <h2 class="section-title">
+    <i class="fas fa-folder-open section-icon"></i>
+    Projects
+</h2>
 
-            <div class="carousel">
-                <div class="slides">
-                    <img src="img/banner1.png" alt="Certificate 1">
-                    <img src="img/banner1.png" alt="Certificate 2">
-                    <img src="img/banner1.png" alt="Project 1">
-                    <img src="img/banner1.png" alt="Project 2">
-                </div>
+            <div class="project-grid">
 
-                <button class="prev" onclick="moveSlide(-1)">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
+                <a href="#" class="project-card">
+                    <div>
+                        <h3>Student Time Monitoring System</h3>
+                        <p>QR & Face Recognition attendance system built with Laravel.</p>
+                    </div>
+                    <i class="fas fa-arrow-right project-arrow"></i>
+                </a>
 
-                <button class="next" onclick="moveSlide(1)">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
+                <a href="#" class="project-card">
+                    <div>
+                        <h3>Record Management System</h3>
+                        <p>Laravel system for organizing records and identifications.</p>
+                    </div>
+                    <i class="fas fa-arrow-right project-arrow"></i>
+                </a>
+
+                <a href="#" class="project-card">
+                    <div>
+                        <h3>QR Attendance System</h3>
+                        <p>Web-based QR code attendance tracking system.</p>
+                    </div>
+                    <i class="fas fa-arrow-right project-arrow"></i>
+                </a>
+
+                <a href="#" class="project-card">
+                    <div>
+                        <h3>Portfolio Website</h3>
+                        <p>Personal portfolio showcasing skills and projects.</p>
+                    </div>
+                    <i class="fas fa-arrow-right project-arrow"></i>
+                </a>
+
             </div>
         </div>
 
-        <footer>
-            © 2026 NJBT•  All rights reserved.
-        </footer>
+
+
+
+
+
+
+        <div class="card">
+           <h2 class="section-title">
+    <i class="fas fa-certificate section-icon"></i>
+    Certificates
+</h2>
+
+            <div class="education-item">
+                <h3>Web Development Certificate</h3>
+                <small>2025</small>
+            </div>
+
+            <div class="education-item">
+                <h3>Laravel Development Training</h3>
+                <small>2025</small>
+            </div>
+
+
+
+        </div>
 
 
 
     </div>
 
-  <div class="theme-toggle" onclick="toggleTheme()">
+</div>
+
+
+
+
+<div class="card">
+   <h2 class="section-title">
+    <i class="fas fa-images section-icon"></i>
+    Gallery
+</h2>
+
+    <div class="carousel">
+        <div class="slides">
+            <img src="img/banner1.png" alt="Certificate 1">
+            <img src="img/banner1.png" alt="Certificate 2">
+            <img src="img/banner1.png" alt="Project 1">
+            <img src="img/banner1.png" alt="Project 2">
+        </div>
+
+        <button class="prev" onclick="moveSlide(-1)">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+
+        <button class="next" onclick="moveSlide(1)">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+</div>
+
+<footer>
+    © 2026 NJBT•  All rights reserved.
+</footer>
+
+
+
+</div>
+
+<div class="theme-toggle" onclick="toggleTheme()">
     <i class="fas fa-sun sun"></i>
     <i class="fas fa-moon moon"></i>
     <div class="toggle-ball"></div>
 </div>
 
-    <!-- Chat Widget -->
-    <div class="chat-container">
+<!-- Chat Widget -->
+<div class="chat-container">
 
-        <button class="chat-toggle" onclick="toggleChat()">
-            💬
-        </button>
+    <button class="chat-toggle" onclick="toggleChat()">
+        💬
+    </button>
 
-        <div class="chat-box" id="chatBox">
 
-            <div class="chat-header">
-                Portfolio Assistant
-                <span onclick="toggleChat()">✖</span>
-            </div>
 
-            <div class="chat-body" id="chatBody">
 
-                <div class="bot-message">
-                    Hello! 👋 How can I help you?
+
+
+    <div class="chat-box" id="chatBox">
+
+        <div class="chat-header">
+            <div class="chat-user">
+                <div class="avatar">
+                    <img src="img/me.png" alt="Profile">
+                    <span class="online-dot"></span>
                 </div>
 
+                <div class="user-info">
+                    <strong>Nick Juliane Torreda</strong>
+                    <small>Online</small>
+                </div>
             </div>
 
-            <div class="chat-footer">
-                <input
-                type="text"
-                id="userInput"
-                placeholder="Type a message..."
-                onkeypress="sendMessage(event)"
-                >
+            <span onclick="toggleChat()">✖</span>
+        </div>
 
-                <button onclick="sendMessage()">
-                    Send
-                </button>
+
+
+        <div class="chat-body" id="chatBody">
+
+            <div class="bot-message">
+                Hi there! 👋<br><br>
+                Thanks for visiting my website. Feel free to ask me anything about programming, web development, or my experiences in tech.<br><br>
+                What's your name?
             </div>
 
+        </div>
+
+        <div class="chat-footer">
+            <input
+            type="text"
+            id="userInput"
+            placeholder="Type a message..."
+            onkeypress="sendMessage(event)"
+            >
+
+            <button onclick="sendMessage()">
+                Send
+            </button>
         </div>
 
     </div>
 
 
-    <script>
 
-     function toggleTheme(){
+
+
+
+
+
+</div>
+
+
+<script>
+
+   function toggleTheme(){
     document.body.classList.toggle('dark');
 
     localStorage.setItem(
@@ -1108,7 +1359,7 @@ body.dark .timeline-item::before{
         document.body.classList.contains('dark')
         ? 'dark'
         : 'light'
-    );
+        );
 }
 
 /* Load saved theme */
@@ -1119,101 +1370,170 @@ if(localStorage.getItem('theme') === 'dark'){
 
 /* CHAT */
 
-        function toggleChat(){
+function toggleChat() {
+    const chatBox = document.getElementById("chatBox");
 
-            const chatBox = document.getElementById("chatBox");
+    if (chatBox.style.display === "flex") {
+        chatBox.style.display = "none";
+    } else {
+        chatBox.style.display = "flex";
+    }
+}
 
-            if(chatBox.style.display === "flex"){
-                chatBox.style.display = "none";
-            }else{
-                chatBox.style.display = "flex";
-            }
+
+
+
+
+
+function sendMessage(event){
+
+    if(event && event.key !== "Enter"){
+        return;
+    }
+
+    const input = document.getElementById("userInput");
+    const message = input.value.trim();
+
+    if(message === "") return;
+
+    const chatBody = document.getElementById("chatBody");
+
+    /* USER MESSAGE */
+
+    const userMsg = document.createElement("div");
+    userMsg.className = "user-message";
+    userMsg.textContent = message;
+
+    chatBody.appendChild(userMsg);
+
+    input.value = "";
+
+    chatBody.scrollTop = chatBody.scrollHeight;
+
+    /* TYPING INDICATOR */
+
+    const typing = document.createElement("div");
+    typing.className = "bot-message";
+    typing.id = "typing";
+
+    typing.innerHTML = `
+    <span class="typing-dot"></span>
+    <span class="typing-dot"></span>
+    <span class="typing-dot"></span>
+    `;
+
+    chatBody.appendChild(typing);
+
+    chatBody.scrollTop = chatBody.scrollHeight;
+
+    setTimeout(() => {
+
+        const typingIndicator = document.getElementById("typing");
+
+        if(typingIndicator){
+            typingIndicator.remove();
         }
 
-        function sendMessage(event){
+        const botMsg = document.createElement("div");
+        botMsg.className = "bot-message";
 
-            if(event && event.key !== "Enter"){
-                return;
-            }
+        let reply = "";
 
-            const input = document.getElementById("userInput");
+        const msg = message.toLowerCase();
 
-            const message = input.value.trim();
-
-            if(message === "") return;
-
-            const chatBody = document.getElementById("chatBody");
-
-            const userMsg = document.createElement("div");
-            userMsg.className = "user-message";
-            userMsg.textContent = message;
-
-            chatBody.appendChild(userMsg);
-
-            input.value = "";
-
-            setTimeout(() => {
-
-                const botMsg = document.createElement("div");
-                botMsg.className = "bot-message";
-
-                let reply = "Thanks for your message!";
-
-                if(message.toLowerCase().includes("project")){
-                    reply = "You can view my projects in the Projects section.";
-                }
-                else if(message.toLowerCase().includes("contact")){
-                    reply = "You can contact me using the details in the Contact section.";
-                }
-                else if(message.toLowerCase().includes("skill")){
-                    reply = "I specialize in Laravel, PHP, MySQL, Java, Bootstrap, HTML, CSS, and JavaScript.";
-                }
-                else if(message.toLowerCase().includes("education")){
-                    reply = "My educational background is listed in the Education section.";
-                }
-
-                botMsg.textContent = reply;
-
-                chatBody.appendChild(botMsg);
-
-                chatBody.scrollTop = chatBody.scrollHeight;
-
-            },500);
-
-            chatBody.scrollTop = chatBody.scrollHeight;
+        if(msg.includes("name")){
+            reply = "My name is Nick Juliane Torreda, a Full Stack Developer specializing in Laravel, PHP, MySQL, Java, and modern web technologies.";
         }
+
+        else if(msg.includes("project") || msg.includes("projects")){
+            reply = "I have developed several projects including a Student Time Monitoring System, Record Management System, QR Attendance System, and other web-based solutions.";
+        }
+
+        else if(msg.includes("skill") || msg.includes("technology")){
+            reply = "My technical skills include Laravel, PHP, MySQL, Java, JavaScript, Bootstrap, HTML, CSS, and database design.";
+        }
+
+        else if(msg.includes("experience")){
+            reply = "I have experience developing web applications, student management systems, attendance systems, and database-driven solutions using Laravel and Java technologies.";
+        }
+
+        else if(msg.includes("education")){
+            reply = "I am currently pursuing a Bachelor of Science in Information Technology while continuously improving my development skills through practical projects.";
+        }
+
+        else if(msg.includes("contact") || msg.includes("email")){
+            reply = "You can contact me through the Contact section or by email. I am open to project discussions and collaboration opportunities.";
+        }
+
+        else if(msg.includes("laravel")){
+            reply = "Laravel is my primary backend framework for building secure, scalable, and maintainable web applications.";
+        }
+
+        else if(msg.includes("java")){
+            reply = "I use Java for developing desktop and web-based systems, including record management and educational applications.";
+        }
+
+        else if(msg.includes("hire") || msg.includes("work")){
+            reply = "Thank you for your interest. Feel free to contact me regarding freelance work, collaborations, internships, or other opportunities.";
+        }
+
+        else if(msg.includes("hello") || msg.includes("hi")){
+            reply = "Hello! 👋 It's great to meet you. Feel free to ask about my projects, skills, education, or development experience.";
+        }
+
+        else{
+            reply = "Thank you for your message. Feel free to ask about my projects, technical skills, education, experience, or how to contact me.";
+        }
+
+        botMsg.textContent = reply;
+
+        chatBody.appendChild(botMsg);
+
+        chatBody.scrollTop = chatBody.scrollHeight;
+
+    }, 1200);
+}
+
+
+
+
+
+
+
+
+
 
 
         /*carusel*/
 
-        let currentSlide = 0;
+let currentSlide = 0;
 
-        function moveSlide(direction){
+function moveSlide(direction){
 
-            const slides = document.querySelector('.slides');
-            const totalSlides = document.querySelectorAll('.slides img').length;
+    const slides = document.querySelector('.slides');
+    const totalSlides = document.querySelectorAll('.slides img').length;
 
-            currentSlide += direction;
+    currentSlide += direction;
 
-            if(currentSlide < 0){
-                currentSlide = totalSlides - 1;
-            }
+    if(currentSlide < 0){
+        currentSlide = totalSlides - 1;
+    }
 
-            if(currentSlide >= totalSlides){
-                currentSlide = 0;
-            }
+    if(currentSlide >= totalSlides){
+        currentSlide = 0;
+    }
 
-            slides.style.transform =
-            `translateX(-${currentSlide * 100}%)`;
-        }
+    slides.style.transform =
+    `translateX(-${currentSlide * 100}%)`;
+}
 
 /* Auto Slide Every 4 Seconds */
 
-        setInterval(() => {
-            moveSlide(1);
-        }, 4000);
+setInterval(() => {
+    moveSlide(1);
+}, 4000);
 
-    </script>
+</script>
 
 </body>
 </html>
