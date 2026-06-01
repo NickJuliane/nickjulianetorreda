@@ -449,7 +449,7 @@ footer{
 /* Chat Window */
 .chat-box{
     position:absolute;
-    bottom:75px; /* sits above button */
+    bottom:75px;
     right:0;
 
     width:360px;
@@ -458,11 +458,12 @@ footer{
     background:var(--card);
     border-radius:16px;
     overflow:hidden;
-    box-shadow:0 10px 35px rgba(0,0,0,.15);
-    border:1px solid var(--border);
 
     display:none;
     flex-direction:column;
+
+    box-shadow:0 10px 35px rgba(0,0,0,.15);
+    border:1px solid var(--border);
 }
 
 /* HEADER (Messenger-style) */
@@ -980,6 +981,44 @@ body.dark .timeline-item:hover h3{
     max-width:80%;
     font-size:14px;
     line-height:1.5;
+}
+
+/*style for chatbox in mobile facebook to view*/
+@media (max-width:768px){
+
+    .chat-box{
+        position:fixed;
+
+        top:10px;
+        left:10px;
+        right:10px;
+        bottom:80px;
+
+        width:auto;
+        height:auto;
+
+        display:none;
+        flex-direction:column;
+
+        z-index:9999;
+    }
+
+    .chat-body{
+        flex:1;
+        overflow-y:auto;
+        -webkit-overflow-scrolling:touch;
+    }
+
+    .chat-footer{
+        position:sticky;
+        bottom:0;
+        background:var(--card);
+        z-index:10;
+    }
+
+    .chat-footer input{
+        font-size:16px; /* prevents iOS zoom */
+    }
 }
 </style>
 </head>
