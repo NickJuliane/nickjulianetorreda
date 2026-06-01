@@ -954,6 +954,33 @@ body.dark .timeline-item:hover h3{
     font-weight:700;
     margin-bottom:12px;
 }
+
+
+/*messenger*/
+.bot-wrapper{
+    display:flex;
+    align-items:flex-end;
+    gap:8px;
+    margin-bottom:10px;
+}
+
+.bot-avatar{
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    object-fit:cover;
+    flex-shrink:0;
+}
+
+.bot-message{
+    background:#e5e7eb;
+    color:#111827;
+    padding:10px 14px;
+    border-radius:18px 18px 18px 4px;
+    max-width:80%;
+    font-size:14px;
+    line-height:1.5;
+}
 </style>
 </head>
 <body>
@@ -986,7 +1013,7 @@ body.dark .timeline-item:hover h3{
 
 
                 <div class="card contact">
-                 <h2>
+                   <h2>
                     <i class="fas fa-address-card section-icon"></i>
                     Get in Touch
                 </h2>
@@ -1061,7 +1088,7 @@ body.dark .timeline-item:hover h3{
         <div>
 
             <div class="card about">
-               <h2 class="section-title">
+             <h2 class="section-title">
                 <i class="fas fa-user section-icon"></i>
                 About Me
             </h2>
@@ -1083,82 +1110,32 @@ body.dark .timeline-item:hover h3{
 
             <!-- Education -->
             <div>
-               <h2 class="section-title">
-    <i class="fas fa-graduation-cap section-icon"></i>
-    Education
-</h2>
+             <h2 class="section-title">
+                <i class="fas fa-graduation-cap section-icon"></i>
+                Education
+            </h2>
 
-                    <div class="timeline">
+            <div class="timeline">
 
-                        <div class="timeline-item">
-                            <h3>Bachelor of Science in Information Technology</h3>
-                            <p>University Name</p>
-                            <small>2022 - Present</small>
-                        </div>
-
-                        <div class="timeline-item">
-                            <h3>Senior High School</h3>
-                            <p>School Name</p>
-                            <small>2020 - 2022</small>
-                        </div>
-
-                        <div class="timeline-item">
-                            <h3>Junior High School</h3>
-                            <p>School Name</p>
-                            <small>2016 - 2020</small>
-                        </div>
-
-                    </div>
+                <div class="timeline-item">
+                    <h3>Bachelor of Science in Information Technology</h3>
+                    <p>University Name</p>
+                    <small>2022 - Present</small>
                 </div>
 
-
-
-
-
-
-                <!-- Work Experience -->
-                <div>
-                   <h2 class="section-title">
-    <i class="fas fa-briefcase section-icon"></i>
-    Work Experience
-</h2>
-
-                    <div class="timeline">
-
-                        <div class="timeline-item">
-                            <h3>Freelance Web Developer</h3>
-                            <small>2024 - Present</small>
-                            <p>
-                                Developing Laravel-based web applications and student management systems.
-                            </p>
-                        </div>
-
-                        <div class="timeline-item">
-                            <h3>Full Stack Developer</h3>
-                            <small>2023 - Present</small>
-                            <p>
-                                Building responsive websites using Laravel, PHP, MySQL, Bootstrap, and JavaScript.
-                            </p>
-                        </div>
-
-                        <div class="timeline-item">
-                            <h3>Internship</h3>
-                            <small>2025</small>
-                            <p>
-                                Assisted in software development and database management projects.
-                            </p>
-                        </div>
-
-                    </div>
+                <div class="timeline-item">
+                    <h3>Senior High School</h3>
+                    <p>School Name</p>
+                    <small>2020 - 2022</small>
                 </div>
 
-
-
-
-
+                <div class="timeline-item">
+                    <h3>Junior High School</h3>
+                    <p>School Name</p>
+                    <small>2016 - 2020</small>
+                </div>
 
             </div>
-
         </div>
 
 
@@ -1166,49 +1143,99 @@ body.dark .timeline-item:hover h3{
 
 
 
+        <!-- Work Experience -->
+        <div>
+         <h2 class="section-title">
+            <i class="fas fa-briefcase section-icon"></i>
+            Work Experience
+        </h2>
 
-        <div class="card">
-           <h2 class="section-title">
+        <div class="timeline">
+
+            <div class="timeline-item">
+                <h3>Freelance Web Developer</h3>
+                <small>2024 - Present</small>
+                <p>
+                    Developing Laravel-based web applications and student management systems.
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Full Stack Developer</h3>
+                <small>2023 - Present</small>
+                <p>
+                    Building responsive websites using Laravel, PHP, MySQL, Bootstrap, and JavaScript.
+                </p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Internship</h3>
+                <small>2025</small>
+                <p>
+                    Assisted in software development and database management projects.
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+<div class="card">
+ <h2 class="section-title">
     <i class="fas fa-folder-open section-icon"></i>
     Projects
 </h2>
 
-            <div class="project-grid">
+<div class="project-grid">
 
-                <a href="#" class="project-card">
-                    <div>
-                        <h3>Student Time Monitoring System</h3>
-                        <p>QR & Face Recognition attendance system built with Laravel.</p>
-                    </div>
-                    <i class="fas fa-arrow-right project-arrow"></i>
-                </a>
-
-                <a href="#" class="project-card">
-                    <div>
-                        <h3>Record Management System</h3>
-                        <p>Laravel system for organizing records and identifications.</p>
-                    </div>
-                    <i class="fas fa-arrow-right project-arrow"></i>
-                </a>
-
-                <a href="#" class="project-card">
-                    <div>
-                        <h3>QR Attendance System</h3>
-                        <p>Web-based QR code attendance tracking system.</p>
-                    </div>
-                    <i class="fas fa-arrow-right project-arrow"></i>
-                </a>
-
-                <a href="#" class="project-card">
-                    <div>
-                        <h3>Portfolio Website</h3>
-                        <p>Personal portfolio showcasing skills and projects.</p>
-                    </div>
-                    <i class="fas fa-arrow-right project-arrow"></i>
-                </a>
-
-            </div>
+    <a href="#" class="project-card">
+        <div>
+            <h3>Student Time Monitoring System</h3>
+            <p>QR & Face Recognition attendance system built with Laravel.</p>
         </div>
+        <i class="fas fa-arrow-right project-arrow"></i>
+    </a>
+
+    <a href="#" class="project-card">
+        <div>
+            <h3>Record Management System</h3>
+            <p>Laravel system for organizing records and identifications.</p>
+        </div>
+        <i class="fas fa-arrow-right project-arrow"></i>
+    </a>
+
+    <a href="#" class="project-card">
+        <div>
+            <h3>QR Attendance System</h3>
+            <p>Web-based QR code attendance tracking system.</p>
+        </div>
+        <i class="fas fa-arrow-right project-arrow"></i>
+    </a>
+
+    <a href="#" class="project-card">
+        <div>
+            <h3>Portfolio Website</h3>
+            <p>Personal portfolio showcasing skills and projects.</p>
+        </div>
+        <i class="fas fa-arrow-right project-arrow"></i>
+    </a>
+
+</div>
+</div>
 
 
 
@@ -1216,29 +1243,29 @@ body.dark .timeline-item:hover h3{
 
 
 
-        <div class="card">
-           <h2 class="section-title">
+<div class="card">
+ <h2 class="section-title">
     <i class="fas fa-certificate section-icon"></i>
     Certificates
 </h2>
 
-            <div class="education-item">
-                <h3>Web Development Certificate</h3>
-                <small>2025</small>
-            </div>
+<div class="education-item">
+    <h3>Web Development Certificate</h3>
+    <small>2025</small>
+</div>
 
-            <div class="education-item">
-                <h3>Laravel Development Training</h3>
-                <small>2025</small>
-            </div>
-
-
-
-        </div>
+<div class="education-item">
+    <h3>Laravel Development Training</h3>
+    <small>2025</small>
+</div>
 
 
 
-    </div>
+</div>
+
+
+
+</div>
 
 </div>
 
@@ -1246,27 +1273,27 @@ body.dark .timeline-item:hover h3{
 
 
 <div class="card">
-   <h2 class="section-title">
+ <h2 class="section-title">
     <i class="fas fa-images section-icon"></i>
     Gallery
 </h2>
 
-    <div class="carousel">
-        <div class="slides">
-            <img src="img/banner1.png" alt="Certificate 1">
-            <img src="img/banner1.png" alt="Certificate 2">
-            <img src="img/banner1.png" alt="Project 1">
-            <img src="img/banner1.png" alt="Project 2">
-        </div>
-
-        <button class="prev" onclick="moveSlide(-1)">
-            <i class="fas fa-chevron-left"></i>
-        </button>
-
-        <button class="next" onclick="moveSlide(1)">
-            <i class="fas fa-chevron-right"></i>
-        </button>
+<div class="carousel">
+    <div class="slides">
+        <img src="img/banner1.png" alt="Certificate 1">
+        <img src="img/banner1.png" alt="Certificate 2">
+        <img src="img/banner1.png" alt="Project 1">
+        <img src="img/banner1.png" alt="Project 2">
     </div>
+
+    <button class="prev" onclick="moveSlide(-1)">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+
+    <button class="next" onclick="moveSlide(1)">
+        <i class="fas fa-chevron-right"></i>
+    </button>
+</div>
 </div>
 
 <footer>
@@ -1317,9 +1344,16 @@ body.dark .timeline-item:hover h3{
 
         <div class="chat-body" id="chatBody">
 
-           <div class="bot-message">
-                Hi there! 👋<br><br>
-                Thanks for visiting my website. Feel free to ask me anything about my programming skills, education, or my experiences in tech, or how to contact me.
+          
+
+            <div class="bot-wrapper">
+                <img src="img/me.png" class="bot-avatar" alt="Nick">
+
+                <div class="bot-message">
+                    Hi there! 👋 <br><br>
+                   Thanks for visiting my website. Feel free to ask me anything about my programming skills, education, or my experiences in tech, or how to contact me.
+
+                </div>
             </div>
 
         </div>
@@ -1351,7 +1385,7 @@ body.dark .timeline-item:hover h3{
 
 <script>
 
-   function toggleTheme(){
+ function toggleTheme(){
     document.body.classList.toggle('dark');
 
     localStorage.setItem(
@@ -1435,7 +1469,7 @@ function sendMessage(event){
         }
 
         const botMsg = document.createElement("div");
-        botMsg.className = "bot-message";
+        botMsg.className = "bot-wrapper";
 
         let reply = "";
 
@@ -1485,7 +1519,12 @@ function sendMessage(event){
             reply = "Thank you for your message. Feel free to ask about my projects, technical skills, education, experience, or how to contact me.";
         }
 
-        botMsg.textContent = reply;
+        botMsg.innerHTML = `
+        <img src="img/me.png" class="bot-avatar" alt="Nick">
+        <div class="bot-message">
+        ${reply}
+        </div>
+        `;
 
         chatBody.appendChild(botMsg);
 
