@@ -80,7 +80,7 @@
 
         .profile h1{
             margin-top:15px;
-            font-size:28px;
+            font-size:26px;
             font-weight:700;
             color:var(--text);
             white-space:nowrap;
@@ -97,9 +97,9 @@
 .card{
     background:var(--card);
     border-radius:20px;
-    padding:30px;
+    padding:22px;
     box-shadow:var(--shadow);
-    margin-bottom:25px;
+    margin-bottom:20px;
     border:1px solid var(--border);
 }
 
@@ -165,15 +165,16 @@ body.dark .skill{
 /* RIGHT SIDE */
 
 .section-title{
-    margin-bottom:20px;
+    margin-bottom:15px;
     color:var(--text);
-    font-size:28px;
+    font-size:24px;
     font-weight:700;
-    letter-spacing:-0.5px;
+    letter-spacing:-0.3px;
 }
 
 .about p{
-    line-height:1.8;
+    line-height:1.65;
+    font-size:15px;
 }
 
 .education-item,
@@ -207,21 +208,21 @@ body.dark .skill{
 
 .project-card{
     background:var(--card);
-    border-radius:16px;
-    padding:22px;
+    border-radius:14px;
+    padding:18px;
     border:1px solid var(--border);
     transition:.3s ease;
 }
 
-.project-card:hover{
-    transform:translateY(-8px);
-}
+
 
 .project-card h3{
-    margin-bottom:10px;
+    font-size:17px;
+    margin-bottom:8px;
 }
 
 .project-card p{
+    font-size:14px;
     line-height:1.6;
 }
 
@@ -261,14 +262,12 @@ body.dark .skill{
 footer{
     width:100%;
     text-align:center;
-    margin-top:50px;
-    padding:25px 0 0;
+    padding-top:20px;
+    margin-top:35px;
     border-top:1px solid var(--border);
     color:var(--text-secondary);
-    font-size:14px;
-    letter-spacing:.3px;
+    font-size:13px;
 }
-
 
 
 /* computer */
@@ -333,14 +332,12 @@ footer{
         gap:8px;
     }
 
-    .skill{
-        font-size:13px;
-        padding:7px 14px;
-    }
+   .skill{
+    padding:6px 12px;
+    font-size:13px;
+}
 
-    .contact-item{
-        font-size:14px;
-    }
+   
 
     .contact-icon{
         width:35px;
@@ -498,10 +495,11 @@ small{
 .contact-item{
     display:flex;
     align-items:center;
-    gap:12px;
+    gap:10px;
     color:var(--text-secondary);
-    font-size:15px;
+    font-size:14px;
 }
+
 
 .contact-icon{
     width:40px;
@@ -596,8 +594,8 @@ body.dark .contact-icon{
 
 .timeline-item{
     position:relative;
-    padding-left:35px;
-    margin-bottom:30px;
+    padding-left:30px;
+    margin-bottom:20px;
 }
 
 .timeline-item::before{
@@ -614,13 +612,13 @@ body.dark .contact-icon{
 }
 
 .timeline-item h3{
-    margin-bottom:5px;
-    color:var(--text);
+    font-size:16px;
+    margin-bottom:3px;
 }
 
 .timeline-item small{
-    display:block;
-    margin-bottom:8px;
+    font-size:13px;
+    margin-bottom:5px;
 }
 
 .timeline-item p{
@@ -638,6 +636,82 @@ body.dark .timeline::before{
 body.dark .timeline-item::before{
     background:#e2e8f0;
     border:3px solid var(--card);
+}
+
+
+
+
+
+
+/* Carausel */
+
+
+.carousel{
+    position:relative;
+    overflow:hidden;
+    border-radius:16px;
+    border:1px solid var(--border);
+}
+
+.slides{
+    display:flex;
+    transition:transform .5s ease;
+}
+
+.slides img{
+    min-width:100%;
+    height:350px;
+    object-fit:cover;
+    display:block;
+}
+
+.prev,
+.next{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:45px;
+    height:45px;
+    border:none;
+    border-radius:50%;
+    background:rgba(0,0,0,.5);
+    color:#fff;
+    cursor:pointer;
+    z-index:10;
+}
+
+.prev{
+    left:15px;
+}
+
+.next{
+    right:15px;
+}
+
+.prev:hover,
+.next:hover{
+    background:rgba(0,0,0,.7);
+}
+
+@media (max-width:768px){
+
+    .slides img{
+        height:220px;
+    }
+
+}
+
+
+/*card*/
+
+.card:hover{
+    transform:translateY(-3px);
+    transition:.3s ease;
+}
+
+
+.project-card:hover{
+    transform:translateY(-5px);
 }
 
 </style>
@@ -922,6 +996,28 @@ body.dark .timeline-item::before{
 
 
 
+
+        <div class="card">
+            <h2 class="section-title">Gallery</h2>
+
+            <div class="carousel">
+                <div class="slides">
+                    <img src="img/banner1.png" alt="Certificate 1">
+                    <img src="img/banner1.png" alt="Certificate 2">
+                    <img src="img/banner1.png" alt="Project 1">
+                    <img src="img/banner1.png" alt="Project 2">
+                </div>
+
+                <button class="prev" onclick="moveSlide(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+
+                <button class="next" onclick="moveSlide(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+
         <footer>
             © 2026 NJBT•  All rights reserved.
         </footer>
@@ -1054,6 +1150,36 @@ body.dark .timeline-item::before{
 
             chatBody.scrollTop = chatBody.scrollHeight;
         }
+
+
+        /*carusel*/
+
+        let currentSlide = 0;
+
+        function moveSlide(direction){
+
+            const slides = document.querySelector('.slides');
+            const totalSlides = document.querySelectorAll('.slides img').length;
+
+            currentSlide += direction;
+
+            if(currentSlide < 0){
+                currentSlide = totalSlides - 1;
+            }
+
+            if(currentSlide >= totalSlides){
+                currentSlide = 0;
+            }
+
+            slides.style.transform =
+            `translateX(-${currentSlide * 100}%)`;
+        }
+
+/* Auto Slide Every 4 Seconds */
+
+        setInterval(() => {
+            moveSlide(1);
+        }, 4000);
 
     </script>
 
