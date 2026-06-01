@@ -1611,6 +1611,19 @@ setInterval(() => {
     moveSlide(1);
 }, 4000);
 
+
+    window.addEventListener("resize", () => {
+
+    const chatBox = document.getElementById("chatBox");
+
+    if(window.innerWidth <= 768){
+
+        chatBox.style.maxHeight =
+            (window.innerHeight - 90) + "px";
+    }
+
+});
+
 </script>
 
 </body>
