@@ -539,8 +539,6 @@ footer{
 /* MESSAGES (Messenger bubbles) */
 .bot-message,
 .user-message{
-    word-break:break-word;
-    overflow-wrap:break-word;
     padding:10px 14px;
     border-radius:18px;
     max-width:75%;
@@ -568,14 +566,12 @@ footer{
 /* FOOTER */
 .chat-footer{
     display:flex;
-    align-items:center;
     border-top:1px solid var(--border);
     padding:8px;
     background:var(--card);
 }
 
 .chat-footer input{
-    min-width:0;
     flex:1;
     padding:10px 12px;
     border-radius:20px;
@@ -984,55 +980,6 @@ body.dark .timeline-item:hover h3{
     max-width:80%;
     font-size:14px;
     line-height:1.5;
-}
-
-
-
-@media (max-width:768px){
-
-     .chat-box{
-        top:0;
-        left:0;
-        right:0;
-        bottom:0;
-
-        border-radius:0;
-    }
-
-    .chat-toggle{
-        width:55px;
-        height:55px;
-        font-size:22px;
-    }
-
-    .chat-header{
-        padding:14px;
-        font-size:15px;
-    }
-
-    .chat-body{
-        padding:12px;
-    }
-
-    .bot-message,
-    .user-message{
-        max-width:90%;
-        font-size:14px;
-    }
-
-    .chat-footer input{
-        font-size:14px;
-    }
-
-    .chat-footer button{
-        padding:12px 14px;
-        font-size:14px;
-    }
-
-    .bot-avatar{
-        width:28px;
-        height:28px;
-    }
 }
 </style>
 </head>
