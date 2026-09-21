@@ -132,6 +132,10 @@
 }
 
 .skill{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
     background:#f3f4f6;
     color:#374151;
     padding:8px 16px;
@@ -140,6 +144,10 @@
     font-weight:500;
     border:1px solid #e5e7eb;
     transition:.3s ease;
+}
+
+.skill i{
+    font-size:16px;
 }
 
 .skill:hover{
@@ -363,7 +371,9 @@ footer{
 
 
 @media (max-width:768px){
-
+.skill i{
+    font-size:14px;
+}
     .container{
         padding:15px;
     }
