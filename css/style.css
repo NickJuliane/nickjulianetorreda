@@ -128,26 +128,26 @@
 .skills{
     display:flex;
     flex-wrap:wrap;
-    gap:10px;
+    gap:6px;
 }
 
 .skill{
     display:inline-flex;
     align-items:center;
-    gap:8px;
+    gap:5px;
 
     background:#f3f4f6;
     color:#374151;
-    padding:8px 16px;
+    padding:4px 10px;
     border-radius:999px;
-    font-size:14px;
+    font-size:12px;
     font-weight:500;
     border:1px solid #e5e7eb;
     transition:.3s ease;
 }
 
 .skill i{
-    font-size:12px;
+    font-size:13px;
 }
 
 .skill:hover{
@@ -397,13 +397,13 @@ footer{
     }
 
     .skills{
-        gap:8px;
-    }
+    gap:5px;
+}
 
-    .skill{
-        padding:6px 12px;
-        font-size:13px;
-    }
+   .skill{
+    padding:3px 8px;
+    font-size:11px;
+}
 
 
 
