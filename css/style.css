@@ -333,13 +333,27 @@ footer{
 @media (max-width: 992px){
 
     .portfolio{
-        grid-template-columns:1fr;
+        grid-template-columns:minmax(0,1fr);
+        gap:20px;
+        margin-bottom:20px;
     }
 
-    .sidebar{
-        position:relative;
-        top:0;
+    .sidebar,
+    .main-column{
+        display:contents;
     }
+
+    .portfolio .card{
+        margin-bottom:0;
+    }
+
+    .profile{ order:1; }
+    .about{ order:2; }
+    .skills-card{ order:3; }
+    .contact{ order:4; }
+    .edu-card{ order:5; }
+    .projects-card{ order:6; }
+    .certificates-card{ order:7; }
 
     .container{
         padding:20px;
